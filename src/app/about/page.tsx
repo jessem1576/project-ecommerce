@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Users, Globe, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About ShopWave',
@@ -63,17 +64,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 p-8 md:p-12 rounded-lg shadow-md">
-        <h2 className="text-3xl font-headline text-primary text-center mb-6">Terms & Conditions</h2>
-        <div className="prose prose-lg max-w-none text-foreground/80">
-          <p>Welcome to ShopWave! These terms and conditions outline the rules and regulations for the use of ShopWave's Website, located at shopwave.com.</p>
-          <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use ShopWave if you do not agree to take all of the terms and conditions stated on this page.</p>
-          <h3 className="font-headline">Cookies</h3>
-          <p>We employ the use of cookies. By accessing ShopWave, you agreed to use cookies in agreement with the ShopWave's Privacy Policy.</p>
-          <h3 className="font-headline">License</h3>
-          <p>Unless otherwise stated, ShopWave and/or its licensors own the intellectual property rights for all material on ShopWave. All intellectual property rights are reserved. You may access this from ShopWave for your own personal use subjected to restrictions set in these terms and conditions.</p>
-          <p><em>This is a summary. For full terms, please refer to a dedicated legal page (not implemented in this demo).</em></p>
-        </div>
+      <section className="text-center py-8">
+        <p className="text-lg text-foreground/80">
+          For more details on our operations, please see our {' '}
+          <Link href="/terms-conditions" className="text-primary hover:underline">Terms & Conditions</Link> and {' '}
+          <Link href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>.
+        </p>
       </section>
     </div>
   );

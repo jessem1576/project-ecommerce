@@ -1,5 +1,5 @@
 
-import type { Product } from '@/types';
+import type { Product, Review } from '@/types';
 
 export const mockProducts: Product[] = [
   {
@@ -89,5 +89,59 @@ export const mockProducts: Product[] = [
     category: 'Books',
     rating: 4.6,
     stock: 90,
+  },
+];
+
+export const mockReviews: Review[] = [
+  {
+    id: 'review1',
+    productId: '1',
+    author: 'Alice Wonderland',
+    rating: 5,
+    comment: 'Absolutely love this smartwatch! The display is crisp and the features are amazing. Battery life is decent too.',
+    date: '2024-05-10',
+    avatarUrl: 'https://placehold.co/40x40.png?text=AW'
+  },
+  {
+    id: 'review2',
+    productId: '1',
+    author: 'Bob The Builder',
+    rating: 4,
+    comment: 'Great watch, very functional. Sometimes the GPS takes a moment to connect, but overall very satisfied.',
+    date: '2024-05-15',
+    avatarUrl: 'https://placehold.co/40x40.png?text=BT'
+  },
+  {
+    id: 'review3',
+    productId: '2',
+    author: 'Charlie Brown',
+    rating: 5,
+    comment: 'The silk scarf is even more beautiful in person. The colors are vibrant and the material feels luxurious.',
+    date: '2024-04-20',
+  },
+  {
+    id: 'review4',
+    productId: '4',
+    author: 'Diana Prince',
+    rating: 4,
+    comment: 'Makes a great cup of coffee! The grinder is a bit loud, but it\'s worth it for fresh beans.',
+    date: '2024-05-01',
+    avatarUrl: 'https://placehold.co/40x40.png?text=DP'
+  },
+  {
+    id: 'review5',
+    productId: '4',
+    author: 'Edward Scissorhands',
+    rating: 5,
+    comment: 'Best coffee maker I\'ve owned. Programmable features are super convenient for my morning routine.',
+    date: '2024-05-22',
+  },
+   {
+    id: 'review6',
+    productId: '1',
+    author: 'Fiona Gallagher',
+    rating: 3,
+    comment: 'It\'s an okay smartwatch. Does the job but didn\'t wow me. The strap feels a bit cheap for the price.',
+    date: '2024-06-01',
   },
 ];

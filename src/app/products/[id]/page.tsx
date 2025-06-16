@@ -1,21 +1,20 @@
-import { mockProducts } from '@/lib/mockData';
-import type { Product } from '@/types';
+import { mockProducts, mockReviews } from '@/lib/mockData';
+import type { Product, Review } from '@/types';
 import ProductImageGallery from '@/components/products/ProductImageGallery';
 import EnrichmentSection from '@/components/products/EnrichmentSection';
-import AddToCartButton from '@/components/products/AddToCartButton'; // Will create this
+import AddToCartButton from '@/components/products/AddToCartButton';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { CURRENCY_SYMBOL, DEFAULT_LOCALE } from '@/lib/constants';
 import { Badge } from '@/components/ui/badge';
-import { Star, CheckCircle } from 'lucide-react';
+import { Star, CheckCircle, MessageSquare } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import ProductReviews from '@/components/products/ProductReviews';
 
 interface ProductPageParams {
   params: { id: string };
 }
 
-// This function can be used if you are using dynamic rendering with generateStaticParams
-// For this mock data setup, it's not strictly necessary but good for demonstration.
 export async function generateStaticParams() {
   return mockProducts.map((product) => ({
     id: product.id,
@@ -25,6 +24,10 @@ export async function generateStaticParams() {
 const getProductById = (id: string): Product | undefined => {
   return mockProducts.find((p) => p.id === id);
 };
+
+const getReviewsByProductId = (productId: string): Review[] => {
+  return mockReviews.filter(review => review.productId === productId);
+}
 
 export async function generateMetadata({ params }: ProductPageParams) {
   const product = getProductById(params.id);
@@ -43,9 +46,10 @@ export default function ProductDetailPage({ params }: ProductPageParams) {
   if (!product) {
     notFound();
   }
+  const reviews = getReviewsByProductId(params.id);
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 space-y-12">
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
         <div>
           <ProductImageGallery images={product.images} altText={product.name} />
@@ -60,6 +64,9 @@ export default function ProductDetailPage({ params }: ProductPageParams) {
                     <Star key={i} size={20} className={i < Math.round(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-muted-foreground/50"} />
                 ))}
                 <span className="text-sm text-muted-foreground">({product.rating.toFixed(1)} rating)</span>
+                <span className="text-sm text-muted-foreground mx-1">|</span>
+                <MessageSquare size={16} className="text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">{reviews.length} review{reviews.length !== 1 ? 's' : ''}</span>
               </div>
             </CardHeader>
             <CardContent>
@@ -78,7 +85,6 @@ export default function ProductDetailPage({ params }: ProductPageParams) {
                   <CheckCircle size={18} className="text-green-500 mr-2" />
                   <span>{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</span>
                 </div>
-                {/* Add more product details here if needed */}
               </div>
 
               {product.stock > 0 && (
@@ -93,6 +99,8 @@ export default function ProductDetailPage({ params }: ProductPageParams) {
         initialProductName={product.name} 
         initialBaseDescription={product.baseDescription} 
       />
+
+      <ProductReviews reviews={reviews} productId={product.id} />
     </div>
   );
 }

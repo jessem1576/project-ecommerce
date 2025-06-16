@@ -23,3 +23,13 @@ export interface EnrichedProductInfo {
   suggestedKeywords: string;
   importantQualities: string;
 }
+
+export interface Review {
+  id: string;
+  productId: string;
+  author: string;
+  avatarUrl?: string;
+  rating: number; // Typically 1-5
+  comment: string;
+  date: string; // ISO date string or formatted date string
+}

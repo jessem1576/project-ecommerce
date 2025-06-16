@@ -6,14 +6,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { mockProducts } from '@/lib/mockData';
 import ProductCard from '@/components/products/ProductCard';
 import type { Product } from '@/types';
-import { ArrowRight, Tag, Sparkles } from 'lucide-react';
+import { ArrowRight, Tag, Sparkles, Truck, RotateCcw, ShieldCheckIcon } from 'lucide-react';
 import { CATEGORIES } from '@/lib/constants';
 
 // Select a few products as "new arrivals" (e.g., the first 4)
 const newArrivals: Product[] = mockProducts.slice(0, 4);
 
 // Select a few categories to feature
-const featuredCategories = CATEGORIES.slice(0, 3); // e.g., Electronics, Clothing, Books
+const featuredCategories = CATEGORIES.slice(0, 3); 
+
+const trustSignals = [
+  { icon: Truck, text: "Fast Shipping", description: "Get your orders delivered quickly." },
+  { icon: RotateCcw, text: "Easy Returns", description: "Hassle-free return policy." },
+  { icon: ShieldCheckIcon, text: "Secure Payments", description: "Your transactions are safe." },
+];
 
 export default function HomePage() {
   return (
@@ -22,7 +28,6 @@ export default function HomePage() {
       <section className="relative bg-gradient-to-r from-primary/10 via-secondary/20 to-accent/10 py-20 px-4 rounded-lg shadow-xl overflow-hidden">
         <div className="absolute inset-0 opacity-50">
           {/* Optional background image or pattern can be added here */}
-          {/* <Image src="https://placehold.co/1200x400.png" alt="Background" layout="fill" objectFit="cover" data-ai-hint="abstract background" /> */}
         </div>
         <div className="container mx-auto text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-headline font-bold text-primary mb-6">
@@ -36,6 +41,19 @@ export default function HomePage() {
               Shop All Products <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
+        </div>
+      </section>
+
+      {/* Trust Signals Section */}
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {trustSignals.map((signal, index) => (
+            <div key={index} className="flex flex-col items-center p-6 bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <signal.icon size={40} className="text-primary mb-3" />
+              <h3 className="text-xl font-semibold text-primary mb-1">{signal.text}</h3>
+              <p className="text-sm text-foreground/70">{signal.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 

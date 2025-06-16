@@ -28,11 +28,9 @@ const ProductsPageClientContent = () => {
   const maxPrice = useMemo(() => Math.max(...mockProducts.map(p => p.price), 500), []);
   
   useEffect(() => {
-    // Initialize price range only once or if min/max prices change
     setPriceRange([minPrice, maxPrice]);
   }, [minPrice, maxPrice]);
 
-  // Update category if query param changes
   useEffect(() => {
     setSelectedCategory(initialCategory);
   }, [initialCategory]);
@@ -78,10 +76,13 @@ const ProductsPageClientContent = () => {
   
   const resetFilters = () => {
     setSearchTerm('');
-    setSelectedCategory('all'); // Reset to 'all', not initialCategory from query param
+    setSelectedCategory('all'); 
     setPriceRange([minPrice, maxPrice]);
     setSortOption('name-asc');
   };
+
+  const activeFilterCount = [searchTerm, selectedCategory !== 'all', priceRange[0] !== minPrice || priceRange[1] !== maxPrice]
+    .filter(Boolean).length;
 
   return (
     <div className="space-y-8">
@@ -92,7 +93,7 @@ const ProductsPageClientContent = () => {
         </p>
       </section>
 
-      <Card className="p-4 md:p-6 shadow-lg sticky top-20 z-40 bg-background/95 backdrop-blur-sm"> {/* Added sticky and bg for better UX */}
+      <Card className="p-4 md:p-6 shadow-lg sticky top-20 z-40 bg-background/95 backdrop-blur-sm">
         <CardContent className="p-0 space-y-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-headline text-primary flex items-center">
@@ -154,7 +155,11 @@ const ProductsPageClientContent = () => {
               </Select>
             </div>
           </div>
-          <div className="flex justify-end mt-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-4 gap-2">
+              <p className="text-sm text-muted-foreground">
+                Showing {filteredAndSortedProducts.length} of {mockProducts.length} products.
+                {activeFilterCount > 0 && ` (${activeFilterCount} filter${activeFilterCount > 1 ? 's' : ''} active)`}
+              </p>
               <Button onClick={resetFilters} variant="outline" size="sm">
                   <XIcon className="mr-2 h-4 w-4" /> Reset Filters
               </Button>
@@ -163,7 +168,7 @@ const ProductsPageClientContent = () => {
       </Card>
 
       {filteredAndSortedProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4"> {/* Added pt-4 for spacing after sticky filter card */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4">
           {filteredAndSortedProducts.map((product: Product) => (
             <ProductCard key={product.id} product={product} />
           ))}
