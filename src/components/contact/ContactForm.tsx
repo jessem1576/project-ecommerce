@@ -1,14 +1,13 @@
 
 "use client";
 
-import { useFormState } from 'react-dom'; // Corrected import for useFormState
+import { useActionState, useEffect } from 'react'; // Corrected import for useActionState
 import { useFormStatus } from 'react-dom'; // Corrected import for useFormStatus
 import { submitContactForm } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2 } from 'lucide-react';
@@ -30,7 +29,7 @@ function SubmitButton() {
 }
 
 const ContactForm = () => {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState); // Updated to useActionState
   const { toast } = useToast();
 
   useEffect(() => {
