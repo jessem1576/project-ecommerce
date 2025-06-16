@@ -1,3 +1,4 @@
+
 // src/components/products/ProductReviews.tsx
 "use client";
 
@@ -5,13 +6,13 @@ import type { Review } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Star, MessageSquare } from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '../ui/textarea';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import FormattedDate from '@/components/shared/FormattedDate'; // Added import
 
 interface ProductReviewsProps {
   reviews: Review[];
@@ -114,7 +115,7 @@ const ProductReviews = ({ reviews, productId }: ProductReviewsProps) => {
                       ))}
                     </div>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-2">{new Date(review.date).toLocaleDateString()}</p>
+                  <FormattedDate dateString={review.date} className="text-xs text-muted-foreground mb-2 block" />
                   <p className="text-sm text-foreground/80 leading-relaxed">{review.comment}</p>
                 </div>
               </div>
