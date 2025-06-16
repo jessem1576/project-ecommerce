@@ -50,27 +50,25 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredCategories.map((category) => (
-            <Link key={category} href={`/products?category=${encodeURIComponent(category)}`} legacyBehavior>
-              <a className="block group">
-                <Card className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-primary transform group-hover:-translate-y-1">
-                  <CardHeader className="p-0 relative aspect-[4/3] bg-secondary/50 flex items-center justify-center">
-                    <Image 
-                      src={`https://placehold.co/400x300.png`} 
-                      alt={category} 
-                      width={400}
-                      height={300}
-                      className="object-cover opacity-70 group-hover:opacity-100 transition-opacity"
-                      data-ai-hint={category.toLowerCase().split(' ')[0]}
-                    />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
-                  </CardHeader>
-                  <CardContent className="p-6 text-center">
-                    <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors">
-                      {category}
-                    </CardTitle>
-                  </CardContent>
-                </Card>
-              </a>
+            <Link key={category} href={`/products?category=${encodeURIComponent(category)}`} className="block group">
+              <Card className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:border-primary transform group-hover:-translate-y-1">
+                <CardHeader className="p-0 relative aspect-[4/3] bg-secondary/50 flex items-center justify-center">
+                  <Image 
+                    src={`https://placehold.co/400x300.png`} 
+                    alt={category} 
+                    width={400}
+                    height={300}
+                    className="object-cover opacity-70 group-hover:opacity-100 transition-opacity"
+                    data-ai-hint={category.toLowerCase().split(' ')[0]}
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+                </CardHeader>
+                <CardContent className="p-6 text-center">
+                  <CardTitle className="text-2xl font-headline text-primary group-hover:text-accent transition-colors">
+                    {category}
+                  </CardTitle>
+                </CardContent>
+              </Card>
             </Link>
           ))}
         </div>
