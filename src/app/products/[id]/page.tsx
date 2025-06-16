@@ -1,7 +1,6 @@
 import { mockProducts, mockReviews } from '@/lib/mockData';
 import type { Product, Review } from '@/types';
 import ProductImageGallery from '@/components/products/ProductImageGallery';
-import EnrichmentSection from '@/components/products/EnrichmentSection';
 import AddToCartButton from '@/components/products/AddToCartButton';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -95,11 +94,6 @@ export default function ProductDetailPage({ params }: ProductPageParams) {
         </div>
       </div>
       
-      <EnrichmentSection 
-        initialProductName={product.name} 
-        initialBaseDescription={product.baseDescription} 
-      />
-
       <ProductReviews reviews={reviews} productId={product.id} />
     </div>
   );
