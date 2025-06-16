@@ -1,4 +1,5 @@
-export const SITE_NAME = 'ShopWave';
+
+export const SITE_NAME = 'Aura Attire';
 export const CURRENCY_SYMBOL = '$';
 export const DEFAULT_LOCALE = 'en-US';
 

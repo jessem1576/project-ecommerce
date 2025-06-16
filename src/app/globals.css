@@ -8,91 +8,92 @@ body {
 
 @layer base {
   :root {
-    --background: 220 25% 98%; /* Very Light Cool Grey */
-    --foreground: 220 15% 20%; /* Dark Cool Grey */
+    /* Aura Attire Light Theme */
+    --background: 30 50% 98%; /* Warm Off-White */
+    --foreground: 210 10% 20%; /* Charcoal Grey */
 
     --card: 0 0% 100%; /* White cards */
-    --card-foreground: 220 15% 20%;
+    --card-foreground: 210 10% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 20%;
+    --popover-foreground: 210 10% 20%;
 
-    --primary: 260 65% 55%; /* Vibrant Purple */
-    --primary-foreground: 260 50% 98%; /* Light color for contrast */
+    --primary: 45 70% 50%; /* Muted Gold */
+    --primary-foreground: 45 50% 15%; /* Darker for contrast on gold */
 
-    --secondary: 220 20% 94%; /* Lighter Cool Grey for secondary elements */
-    --secondary-foreground: 260 65% 35%; /* Darker purple for contrast */
+    --secondary: 30 30% 94%; /* Lighter warm grey for secondary elements */
+    --secondary-foreground: 45 70% 30%; /* Darker gold for contrast */
 
-    --muted: 220 20% 90%; /* Muted grey */
-    --muted-foreground: 220 10% 40%;
+    --muted: 30 20% 90%; /* Muted warm grey */
+    --muted-foreground: 210 10% 40%;
 
-    --accent: 20 90% 58%; /* Warm Orange */
-    --accent-foreground: 20 50% 98%; /* Light color for contrast */
+    --accent: 45 70% 55%; /* Muted Gold (can be same as primary or slightly varied) */
+    --accent-foreground: 45 50% 15%; /* Darker for contrast on gold */
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 88%; /* Cool Grey-based border */
-    --input: 220 15% 96%; /* Very Light Cool Grey input background */
-    --ring: 260 70% 65%; /* Brighter Purple for focus rings */
+    --border: 30 20% 88%; /* Warm Grey-based border */
+    --input: 30 30% 96%; /* Very Light Warm Grey input background */
+    --ring: 45 75% 60%; /* Brighter Gold for focus rings */
 
-    --chart-1: 260 70% 60%;
-    --chart-2: 20 85% 65%;
-    --chart-3: 220 50% 50%;
-    --chart-4: 180 60% 50%;
-    --chart-5: 40 80% 60%;
+    --chart-1: 45 70% 60%;
+    --chart-2: 30 85% 65%; /* Complementary warm tone */
+    --chart-3: 210 50% 50%; /* Cool contrast */
+    --chart-4: 0 60% 50%;   /* Another warm tone, e.g. terracotta */
+    --chart-5: 35 80% 60%; /* Lighter gold/orange */
     --radius: 0.5rem;
 
-    /* Sidebar colors (kept distinct as per original design, but can be themed too) */
-    --sidebar-background: 220 15% 96%; /* Slightly darker grey for sidebar bg */
-    --sidebar-foreground: 220 15% 15%; /* Darker grey for sidebar text */
-    --sidebar-primary: 260 65% 55%; /* Match main primary */
-    --sidebar-primary-foreground: 260 50% 98%; /* Match main primary-foreground */
-    --sidebar-accent: 220 20% 90%; /* Light grey for sidebar accent */
-    --sidebar-accent-foreground: 260 65% 35%; /* Darker purple for contrast */
-    --sidebar-border: 220 15% 85%;
-    --sidebar-ring: 260 70% 65%;
+    /* Sidebar colors - aligned with the new theme */
+    --sidebar-background: 30 30% 96%; 
+    --sidebar-foreground: 210 10% 15%; 
+    --sidebar-primary: 45 70% 50%; 
+    --sidebar-primary-foreground: 45 50% 15%;
+    --sidebar-accent: 30 20% 90%; 
+    --sidebar-accent-foreground: 45 70% 30%; 
+    --sidebar-border: 30 20% 85%;
+    --sidebar-ring: 45 75% 60%;
   }
 
   .dark {
-    /* Dark theme (updated to complement new light theme) */
-    --background: 220 15% 10%; /* Dark Cool Grey */
-    --foreground: 220 20% 90%; /* Light Cool Grey */
+    /* Aura Attire Dark Theme */
+    --background: 30 10% 10%; /* Dark Warm Grey/Brown */
+    --foreground: 30 15% 85%; /* Light Warm Grey */
 
-    --card: 220 15% 15%; /* Darker card background */
-    --card-foreground: 220 20% 90%;
+    --card: 30 10% 15%; /* Darker card background */
+    --card-foreground: 30 15% 85%;
 
-    --popover: 220 15% 12%;
-    --popover-foreground: 220 20% 90%;
+    --popover: 30 10% 12%;
+    --popover-foreground: 30 15% 85%;
 
-    --primary: 260 70% 65%; /* Brighter Purple for dark mode */
-    --primary-foreground: 260 50% 98%;
+    --primary: 45 70% 60%; /* Brighter Muted Gold for dark mode */
+    --primary-foreground: 45 50% 15%;
 
-    --secondary: 220 15% 25%; /* Darker Grey for secondary */
-    --secondary-foreground: 220 20% 85%;
+    --secondary: 30 10% 25%; /* Darker Warm Grey for secondary */
+    --secondary-foreground: 30 15% 80%;
 
-    --muted: 220 15% 22%; /* Muted Dark Grey */
-    --muted-foreground: 220 15% 65%;
+    --muted: 30 10% 22%; /* Muted Dark Warm Grey */
+    --muted-foreground: 30 10% 65%;
 
-    --accent: 20 90% 65%; /* Brighter Orange for dark mode */
-    --accent-foreground: 20 50% 98%;
+    --accent: 45 70% 65%; /* Brighter Muted Gold for dark mode */
+    --accent-foreground: 45 50% 15%;
 
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 30%; /* Grey-based border for dark */
-    --input: 220 15% 20%; /* Dark input background */
-    --ring: 260 75% 70%; /* Brighter Purple ring for dark */
+    --border: 30 10% 30%; /* Warm Grey-based border for dark */
+    --input: 30 10% 20%; /* Dark input background */
+    --ring: 45 75% 70%; /* Brighter Gold ring for dark */
     
     /* Dark Sidebar colors */
-    --sidebar-background: 220 15% 12%;
-    --sidebar-foreground: 220 20% 85%;
-    --sidebar-primary: 260 70% 65%;
-    --sidebar-primary-foreground: 260 50% 98%;
-    --sidebar-accent: 220 15% 22%;
-    --sidebar-accent-foreground: 220 20% 85%;
-    --sidebar-border: 220 15% 25%;
-    --sidebar-ring: 260 75% 70%;
+    --sidebar-background: 30 10% 12%;
+    --sidebar-foreground: 30 15% 80%;
+    --sidebar-primary: 45 70% 60%;
+    --sidebar-primary-foreground: 45 50% 15%;
+    --sidebar-accent: 30 10% 22%;
+    --sidebar-accent-foreground: 30 15% 80%;
+    --sidebar-border: 30 10% 25%;
+    --sidebar-ring: 45 75% 70%;
   }
 }
 
