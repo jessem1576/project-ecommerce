@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useFormStatus } from 'react';
 import { loginUserAction } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -29,7 +29,7 @@ function SubmitButton() {
 }
 
 const LoginForm = () => {
-  const [state, formAction] = useFormState(loginUserAction, initialState);
+  const [state, formAction] = useActionState(loginUserAction, initialState);
   const { toast } = useToast();
 
   useEffect(() => {
