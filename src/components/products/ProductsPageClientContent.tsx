@@ -93,7 +93,7 @@ const ProductsPageClientContent = () => {
         </p>
       </section>
 
-      <Card className="p-4 md:p-6 shadow-lg sticky top-20 z-40 bg-background/95 backdrop-blur-sm">
+      <Card className="p-4 md:p-6 shadow-lg z-40 bg-background/95 backdrop-blur-sm">
         <CardContent className="p-0 space-y-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-headline text-primary flex items-center">
@@ -184,3 +184,4 @@ const ProductsPageClientContent = () => {
 };
 
 export default ProductsPageClientContent;
+
