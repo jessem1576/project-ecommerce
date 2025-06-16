@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { CartItem } from '@/types';
@@ -17,10 +18,13 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
   const { updateQuantity, removeFromCart } = useCart();
 
   const handleQuantityChange = (newQuantity: number) => {
-    if (newQuantity > 0 && newQuantity <= item.product.stock) {
-      updateQuantity(item.product.id, newQuantity);
+    // Max stock is specific to the variant
+    if (newQuantity > 0 && newQuantity <= item.variant.stock) {
+      updateQuantity(item.product.id, item.variant.sku, newQuantity);
     } else if (newQuantity <= 0) {
-      updateQuantity(item.product.id, 0); // This will trigger removal in updateQuantity or handle directly
+      updateQuantity(item.product.id, item.variant.sku, 0); // This will trigger removal in updateQuantity or handle directly
+    } else if (newQuantity > item.variant.stock) {
+        updateQuantity(item.product.id, item.variant.sku, item.variant.stock); // Cap at max stock
     }
   };
   
@@ -30,7 +34,7 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
     <div className="flex items-center gap-4 p-4 border-b last:border-b-0 hover:bg-secondary/30 transition-colors duration-200 rounded-md">
       <Link href={`/products/${item.product.id}`} className="shrink-0">
         <Image
-          src={item.product.images[0]}
+          src={item.variant.image || item.product.images[0]}
           alt={item.product.name}
           width={100}
           height={100}
@@ -42,6 +46,9 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
         <Link href={`/products/${item.product.id}`} className="hover:text-primary transition-colors">
           <h3 className="text-lg font-semibold font-headline">{item.product.name}</h3>
         </Link>
+        <p className="text-xs text-muted-foreground">
+          {item.variant.color} / {item.variant.size}
+        </p>
         <p className="text-sm text-muted-foreground">
           Price: {CURRENCY_SYMBOL}
           {item.product.price.toLocaleString(DEFAULT_LOCALE, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -62,7 +69,7 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
             value={item.quantity}
             onChange={(e) => handleQuantityChange(parseInt(e.target.value))}
             min="1"
-            max={item.product.stock}
+            max={item.variant.stock} // Max stock is variant specific
             className="h-8 w-16 text-center"
             aria-label="Item quantity"
           />
@@ -71,7 +78,7 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
             size="icon"
             className="h-8 w-8"
             onClick={() => handleQuantityChange(item.quantity + 1)}
-            disabled={item.quantity >= item.product.stock}
+            disabled={item.quantity >= item.variant.stock} // Max stock is variant specific
             aria-label="Increase quantity"
           >
             <Plus size={16} />
@@ -87,7 +94,7 @@ const CartItemCard = ({ item }: CartItemCardProps) => {
           variant="ghost"
           size="icon"
           className="text-muted-foreground hover:text-destructive hover:bg-destructive/10"
-          onClick={() => removeFromCart(item.product.id)}
+          onClick={() => removeFromCart(item.product.id, item.variant.sku)}
           aria-label="Remove item from cart"
         >
           <X size={20} />

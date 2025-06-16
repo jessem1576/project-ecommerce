@@ -1,17 +1,23 @@
+
 "use client";
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 interface ProductImageGalleryProps {
   images: string[];
   altText: string;
+  mainImageOverride?: string | null;
 }
 
-const ProductImageGallery = ({ images, altText }: ProductImageGalleryProps) => {
-  const [selectedImage, setSelectedImage] = useState(images[0]);
+const ProductImageGallery = ({ images, altText, mainImageOverride }: ProductImageGalleryProps) => {
+  const [currentMainImage, setCurrentMainImage] = useState(mainImageOverride || images[0] || "https://placehold.co/600x400.png");
+
+  useEffect(() => {
+    setCurrentMainImage(mainImageOverride || images[0] || "https://placehold.co/600x400.png");
+  }, [mainImageOverride, images]);
 
   if (!images || images.length === 0) {
     return (
@@ -27,7 +33,7 @@ const ProductImageGallery = ({ images, altText }: ProductImageGalleryProps) => {
         <CardContent className="p-0">
           <div className="aspect-square relative">
             <Image
-              src={selectedImage}
+              src={currentMainImage}
               alt={`${altText} - Main View`}
               fill
               className="object-cover transition-opacity duration-300 ease-in-out"
@@ -43,10 +49,10 @@ const ProductImageGallery = ({ images, altText }: ProductImageGalleryProps) => {
           {images.map((image, index) => (
             <button
               key={index}
-              onClick={() => setSelectedImage(image)}
+              onClick={() => setCurrentMainImage(image)}
               className={cn(
                 "aspect-square relative overflow-hidden rounded-md border-2 transition-all focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-                selectedImage === image ? "border-primary ring-2 ring-primary" : "border-transparent hover:border-muted-foreground/50"
+                currentMainImage === image ? "border-primary ring-2 ring-primary" : "border-transparent hover:border-muted-foreground/50"
               )}
               aria-label={`View image ${index + 1} of ${altText}`}
             >
