@@ -41,6 +41,7 @@ export default function ProductDetailPage({ params }: ProductPageParams) {
   }
   const reviews = getReviewsByProductId(params.id);
 
-  // Use a key for ProductVariantSelector if product changes to re-initiate state
+  // The ProductVariantSelector component is a Client Component and handles all interactive logic
+  // including useState for selectedColor, selectedSize, and selectedVariant.
   return <ProductVariantSelector product={product} reviews={reviews} key={product.id} />;
 }

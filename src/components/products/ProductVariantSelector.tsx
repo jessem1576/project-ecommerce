@@ -31,22 +31,13 @@ export default function ProductVariantSelector({ product, reviews }: ProductVari
     return Array.from(colors);
   }, [product.variants]);
 
-  const availableSizesForSelectedColor = useMemo(() => {
-    if (!selectedColor) return [];
-    const sizes = new Set<string>();
-    product.variants
-      .filter(variant => variant.color === selectedColor && variant.stock > 0)
-      .forEach(variant => sizes.add(variant.size));
-    return Array.from(sizes).sort((a, b) => a.localeCompare(b)); // Basic sort for sizes
-  }, [product.variants, selectedColor]);
-  
   const allSizesForSelectedColor = useMemo(() => {
     if(!selectedColor) return [];
     const sizes = new Set<string>();
     product.variants
         .filter(variant => variant.color === selectedColor)
         .forEach(variant => sizes.add(variant.size));
-    return Array.from(sizes).sort((a,b) => a.localeCompare(b));
+    return Array.from(sizes).sort((a,b) => a.localeCompare(b)); // Basic sort for sizes
   }, [product.variants, selectedColor]);
 
 
@@ -64,14 +55,11 @@ export default function ProductVariantSelector({ product, reviews }: ProductVari
       if (sizesForInitialColor.length > 0) {
         setSelectedSize(sizesForInitialColor[0]);
       } else {
-        // If no stock for the first color, try to find first available variant overall
         const firstAvailableVariant = product.variants.find(v => v.stock > 0);
         if (firstAvailableVariant) {
             setSelectedColor(firstAvailableVariant.color);
             setSelectedSize(firstAvailableVariant.size);
         } else {
-            // If nothing in stock, pick first color and first size regardless of stock
-            // to allow UI to render, button will be disabled.
             const firstVariantOverall = product.variants[0];
             if (firstVariantOverall) {
                 setSelectedColor(firstVariantOverall.color);
@@ -95,7 +83,6 @@ export default function ProductVariantSelector({ product, reviews }: ProductVari
 
   const handleColorSelect = (color: string) => {
     setSelectedColor(color);
-    // Reset size selection or pick first available size for new color
     const sizesForNewColor = product.variants
       .filter(v => v.color === color && v.stock > 0)
       .map(v => v.size)
@@ -104,7 +91,7 @@ export default function ProductVariantSelector({ product, reviews }: ProductVari
       setSelectedSize(sizesForNewColor[0]);
     } else {
        const firstSizeForColor = product.variants.find(v => v.color === color)?.size;
-       setSelectedSize(firstSizeForColor || null); // select first size even if out of stock
+       setSelectedSize(firstSizeForColor || null); 
     }
   };
 
@@ -150,7 +137,6 @@ export default function ProductVariantSelector({ product, reviews }: ProductVari
                 {product.description}
               </CardDescription>
 
-              {/* Color Selector */}
               {uniqueColors.length > 0 && (
                 <div className="mb-4">
                   <h3 className="text-sm font-medium text-foreground mb-2">Color: <span className="font-semibold">{selectedColor}</span></h3>
@@ -172,7 +158,6 @@ export default function ProductVariantSelector({ product, reviews }: ProductVari
                 </div>
               )}
 
-              {/* Size Selector */}
               {selectedColor && allSizesForSelectedColor.length > 0 && (
                  <div className="mb-6">
                     <h3 className="text-sm font-medium text-foreground mb-2">Size: <span className="font-semibold">{selectedSize}</span></h3>
