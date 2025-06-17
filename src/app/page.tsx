@@ -31,7 +31,7 @@ export default function HomePage() {
         </div>
         <div className="container mx-auto text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-headline font-bold text-primary mb-6">
-            Welcome to ShopWave
+            Welcome to Aura Attire
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto mb-10 leading-relaxed">
             Discover a world of quality, innovation, and style. Your next favorite find is just a click away.
