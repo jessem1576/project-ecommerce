@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Login',
-  description: 'Login to your ShopWave account.',
+  description: 'Login to your Aura Attire account.',
 };
 
 export default function LoginPage() {
@@ -14,7 +14,7 @@ export default function LoginPage() {
         <div className="text-center">
           <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">Welcome Back!</h1>
           <p className="text-foreground/80">
-            Sign in to continue to your ShopWave account.
+            Sign in to continue to your Aura Attire account.
           </p>
         </div>
         <LoginForm />

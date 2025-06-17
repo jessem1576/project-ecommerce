@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with ShopWave. We are here to help!',
+  description: 'Get in touch with Aura Attire. We are here to help!',
 };
 
 export default function ContactPage() {
@@ -24,14 +24,14 @@ export default function ContactPage() {
             <MapPin size={24} className="text-accent mt-1 shrink-0" />
             <div>
               <h3 className="font-semibold text-lg text-accent-foreground">Our Address</h3>
-              <p className="text-accent-foreground/80">123 ShopWave Avenue, Commerce City, CC 54321</p>
+              <p className="text-accent-foreground/80">123 Aura Attire Avenue, Commerce City, CC 54321</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <Mail size={24} className="text-accent mt-1 shrink-0" />
             <div>
               <h3 className="font-semibold text-lg text-accent-foreground">Email Us</h3>
-              <p className="text-accent-foreground/80">support@shopwave.com</p>
+              <p className="text-accent-foreground/80">support@aurattire.com</p>
             </div>
           </div>
           <div className="flex items-start gap-4">

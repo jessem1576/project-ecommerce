@@ -3,7 +3,7 @@ import { ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Read the ShopWave Privacy Policy to understand how we collect, use, and protect your personal information.',
+  description: 'Read the Aura Attire Privacy Policy to understand how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -16,14 +16,14 @@ export default function PrivacyPolicyPage() {
       </section>
 
       <section className="max-w-3xl mx-auto prose prose-lg text-foreground/80">
-        <p>Welcome to ShopWave! Your privacy is critically important to us. This Privacy Policy document outlines the types of personal information that is received and collected by ShopWave and how it is used.</p>
+        <p>Welcome to Aura Attire! Your privacy is critically important to us. This Privacy Policy document outlines the types of personal information that is received and collected by Aura Attire and how it is used.</p>
 
         <h2 className="font-headline">Information We Collect</h2>
         <p>We may collect personal identification information from Users in a variety of ways, including, but not limited to, when Users visit our site, register on the site, place an order, subscribe to the newsletter, respond to a survey, fill out a form, and in connection with other activities, services, features or resources we make available on our Site.</p>
         <p>Users may be asked for, as appropriate, name, email address, mailing address, phone number, credit card information.</p>
 
         <h2 className="font-headline">How We Use Collected Information</h2>
-        <p>ShopWave may collect and use Users personal information for the following purposes:</p>
+        <p>Aura Attire may collect and use Users personal information for the following purposes:</p>
         <ul>
           <li>To improve customer service: Information you provide helps us respond to your customer service requests and support needs more efficiently.</li>
           <li>To personalize user experience: We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.</li>
@@ -38,13 +38,13 @@ export default function PrivacyPolicyPage() {
         <p>We do not sell, trade, or rent Users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above.</p>
         
         <h2 className="font-headline">Changes to This Privacy Policy</h2>
-        <p>ShopWave has the discretion to update this privacy policy at any time. When we do, we will revise the updated date at the top of this page. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.</p>
+        <p>Aura Attire has the discretion to update this privacy policy at any time. When we do, we will revise the updated date at the top of this page. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.</p>
 
         <h2 className="font-headline">Your Acceptance of These Terms</h2>
         <p>By using this Site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Site. Your continued use of the Site following the posting of changes to this policy will be deemed your acceptance of those changes.</p>
 
         <h2 className="font-headline">Contacting Us</h2>
-        <p>If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at support@shopwave.com.</p>
+        <p>If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at support@aurattire.com.</p>
         <p><em>This document is a template and should be reviewed by legal counsel.</em></p>
       </section>
     </div>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Sign Up',
-  description: 'Create a new ShopWave account.',
+  description: 'Create a new Aura Attire account.',
 };
 
 export default function SignupPage() {
@@ -14,7 +14,7 @@ export default function SignupPage() {
         <div className="text-center">
           <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">Create an Account</h1>
           <p className="text-foreground/80">
-            Join ShopWave today and start your shopping journey!
+            Join Aura Attire today and start your shopping journey!
           </p>
         </div>
         <SignupForm />

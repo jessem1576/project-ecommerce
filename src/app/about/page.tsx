@@ -5,17 +5,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About ShopWave',
-  description: 'Learn more about ShopWave, our mission, values, and what makes us special.',
+  title: 'About Aura Attire',
+  description: 'Learn more about Aura Attire, our mission, values, and what makes us special.',
 };
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto py-12 space-y-16">
       <section className="text-center">
-        <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary mb-6">About ShopWave</h1>
+        <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary mb-6">About Aura Attire</h1>
         <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-          At ShopWave, we're passionate about bringing you an unparalleled shopping experience. We believe in quality, innovation, and the joy of discovering products that enhance your life.
+          At Aura Attire, we're passionate about bringing you an unparalleled shopping experience. We believe in quality, innovation, and the joy of discovering products that enhance your life.
         </p>
       </section>
 
@@ -26,13 +26,13 @@ export default function AboutPage() {
             Our mission is to curate a diverse collection of high-quality products, making them accessible to everyone, everywhere. We strive to create a seamless and enjoyable online shopping journey, powered by cutting-edge technology and a customer-first approach.
           </p>
           <p className="text-lg text-foreground/80 leading-relaxed">
-            We are committed to sustainability, ethical sourcing, and supporting artisans and small businesses. Every purchase at ShopWave contributes to a larger vision of a more connected and conscious marketplace.
+            We are committed to sustainability, ethical sourcing, and supporting artisans and small businesses. Every purchase at Aura Attire contributes to a larger vision of a more connected and conscious marketplace.
           </p>
         </div>
         <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl">
           <Image 
             src="https://placehold.co/600x400.png" 
-            alt="ShopWave Team Working" 
+            alt="Aura Attire Team Working" 
             fill 
             className="object-cover"
             data-ai-hint="team collaboration"

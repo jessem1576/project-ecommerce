@@ -3,7 +3,7 @@ import { RotateCcw } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Return & Refund Policy',
-  description: 'Understand ShopWave\'s policy on returns, exchanges, and refunds.',
+  description: "Understand Aura Attire's policy on returns, exchanges, and refunds.",
 };
 
 export default function ReturnPolicyPage() {
@@ -16,7 +16,7 @@ export default function ReturnPolicyPage() {
       </section>
 
       <section className="max-w-3xl mx-auto prose prose-lg text-foreground/80">
-        <p>At ShopWave, we want you to be completely satisfied with your purchase. If you are not entirely happy, we're here to help.</p>
+        <p>At Aura Attire, we want you to be completely satisfied with your purchase. If you are not entirely happy, we're here to help.</p>
 
         <h2 className="font-headline">Returns</h2>
         <p>You have 30 calendar days to return an item from the date you received it.</p>
@@ -36,7 +36,7 @@ export default function ReturnPolicyPage() {
         <p>If you received a damaged or incorrect item, please contact us immediately so we can resolve the issue. We will cover all shipping costs for returning and replacing damaged or incorrect items.</p>
 
         <h2 className="font-headline">Contact Us</h2>
-        <p>If you have any questions on how to return your item to us, contact us at support@shopwave.com or through our <a href="/contact" className="text-accent hover:underline">contact page</a>.</p>
+        <p>If you have any questions on how to return your item to us, contact us at support@aurattire.com or through our <a href="/contact" className="text-accent hover:underline">contact page</a>.</p>
         <p><em>This policy is a template and may need to be adjusted to fit your specific business needs.</em></p>
       </section>
     </div>

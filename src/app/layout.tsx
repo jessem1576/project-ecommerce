@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
-  description: 'Welcome to ShopWave - Your destination for quality products.',
+  description: `Welcome to ${SITE_NAME} - Your destination for quality products.`,
 };
 
 export default function RootLayout({
